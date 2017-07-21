@@ -1,0 +1,283 @@
+{
+	"resources": {
+		"oxygen": {
+			"name": "Oxygen",
+			"shortName": "O2",
+			"type": "gas",
+			"units": "g"
+		},
+		"pollutedOxygen": {
+			"name": "Polluted Oxygen",
+			"shortName": "O2(P)",
+			"type": "gas",
+			"units": "g"
+		},
+		"carbonDioxide": {
+			"name": "Carbon Dioxide",
+			"shortName": "CO2",
+			"type": "gas",
+			"units": "g"
+		},
+		"chlorine": {
+			"name": "Chlorine",
+			"shortName": "Cl2",
+			"type": "gas",
+			"units": "g"
+		},
+		"hydrogen": {
+			"name": "Hydrogen",
+			"shortName": "H2",
+			"type": "gas",
+			"units": "g"
+		},
+		"naturalGas": {
+			"name": "Natural Gas",
+			"shortName": "Gas",
+			"type": "gas",
+			"units": "g"
+		},
+		"water": {
+			"name": "Water",
+			"shortName": "H2O",
+			"type": "liquid",
+			"units": "g"
+		},
+		"pollutedWater": {
+			"name": "Polluted Water",
+			"shortName": "H2O(P)",
+			"type": "liquid",
+			"units": "g"
+		},
+		"power": {
+			"name": "Power",
+			"shortName": "Pow",
+			"type": "electricity",
+			"units": "W"
+		},
+		"sand": {
+			"name": "Sand",
+			"shortName": "Sand",
+			"type": "filtrationMedium",
+			"units": "g"
+		},
+		"coal": {
+			"name": "Coal",
+			"shortName": "Coal",
+			"type": "consumableOre",
+			"units": "g"
+		},
+		"slime": {
+			"name": "Slime",
+			"shortName": "Slime",
+			"type": "organic",
+			"units": "g"
+		},
+		"algae": {
+			"name": "Algae",
+			"shortName": "Algae",
+			"type": "organic",
+			"units": "g"
+		},
+		"clay": {
+			"name": "Clay",
+			"shortName": "Clay",
+			"type": "cultivableSoil",
+			"units": "g"
+		},
+		"dirt": {
+			"name": "Dirt",
+			"shortName": "cultivableSoil",
+			"units": "g"
+		},
+		"fertilizer": {
+			"name": "Fertilizer",
+			"shortName": "Fert",
+			"type": "agricultural",
+			"units": "g"
+		},
+		"pollutedDirt": {
+			"name": "Polluted Dirt",
+			"shortName": "Dirt(P)",
+			"type": "organic",
+			"units": "g"
+		}
+	},
+
+	"entities": {
+		"duplicants": {
+			"default": {
+				"name": "Duplicant - Default",
+				"consumes": {
+					"oxygen": {
+						"baseValue": 100
+					}
+				},
+				"produces": {
+					"carbonDioxide": {
+						"baseValue": 2
+					}
+				}
+			},
+			"diversLungs": {
+				"name": "Duplicant - Diver's Lungs",
+				"consumes": {
+					"oxygen": {
+						"baseValue": 75
+					}
+				},
+				"produces": {
+					"carbonDioxide": {
+						"baseValue": 2
+					}
+				}
+			},
+			"mouthbreather": {
+				"name": "Duplicant - Mouthbreather",
+				"consumes": {
+					"oxygen": {
+						"baseValue": 200
+					}
+				},
+				"produces": {
+					"carbonDioxide": {
+						"baseValue": 2
+					}
+				}
+			}
+		},
+		"oxygenProduction": {
+			"algaeDeoxydizer": {
+				"name": "Algae Deoxydizer",
+				"consumes": {
+					"power": 120,
+					"algae": 1000
+				},
+				"produces": {
+					"oxygen": 600
+				}
+			},
+			"algaeTerrarium": {
+				"name": "Algae Terrarium",
+				"consumes": {
+					"algae": 30,
+					"water": 300,
+					"carbonDioxide": 0.333
+				},
+				"produces": {
+					"oxygen": 40
+				}
+			},
+			"electrolyzer": {
+				"name": "Electrolyzer",
+				"consumes": {
+					"power": 120,
+					"water": 1000
+				},
+				"produces": {
+					"oxygen": 888,
+					"hydrogen": 112
+				}
+			},
+			"airDeodorizer": {
+				"name": "Air Deodorizer",
+				"consumes": {
+					"sand": 1000,
+					"pollutedOxygen": 100
+				},
+				"produces": {
+					"clay": 500,
+					"oxygen": 50
+				}
+			},
+			"airScrubber": {
+				"name": "Air Scrubber",
+				"consumes": {
+					"power": 120,
+					"water": 1000,
+					"carbonDioxide": 300
+				},
+				"produces": {
+					"pollutedWater": 1000,
+					"carbonDioxide": 1000,
+				}
+			}
+		},
+		"power": {
+			"coalGenerator": {
+				"name": "Coal Generator",
+				"consumes": {
+					"coal": 1000
+				},
+				"produces": {
+					"power": 600
+				}
+			},
+			"hydrogenGenerator": {
+				"name": "Hydrogen Generator",
+				"consumes": {
+					"hydrogen": 100
+				},
+				"produces": {
+					"power": 800
+				}
+			},
+			"naturalGasGenerator": {
+				"name": "Natural Gas Generator",
+				"consumes": {
+					"naturalGas": 60
+				},
+				"produces": {
+					"power": 800,
+					"carbonDioxide": 82.5,
+					"pollutedWater": 67.5
+				}
+			}
+		},
+		"refinement": {
+			"waterPurifier": {
+				"name": "Water Purifier",
+				"consumes": {
+					"power": 120,
+					"sand": 1000,
+					"pollutedWater": 5000
+				},
+				"produces": {
+					"pollutedDirt": 200,
+					"water": 5000
+				}
+			},
+			"compost": {
+				"name": "Compost",
+				"consumes": {
+					"pollutedDirt": 100
+				},
+				"produces": {
+					"fertilizer": 100
+				}
+			},
+			"bioDistiller": {
+				"name": "Bio Distiller",
+				"consumes": {
+					"power": 120,
+					"slime": 300
+				},
+				"produces": {
+					"algae": 100,
+					"pollutedWater": 200
+				}
+			},
+			"fertilizerMaker": {
+				"name": "Fertilizer Maker",
+				"consumes": {
+					"power": 120,
+					"pollutedWater": 150
+				},
+				"produces": {
+					"naturalGas": 20,
+					"fertilizer": 120
+				}
+			}
+		}
+
+	}
+}
