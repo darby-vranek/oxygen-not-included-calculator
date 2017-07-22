@@ -29,7 +29,7 @@ class Entity extends React.Component {
 				<td>{gameData.entities[this.props.name].name}</td>
 				<td><ResourceChange name={this.props.name} resourceChange="consumes" /></td>
 				<td><ResourceChange name={this.props.name} resourceChange="produces" /></td>
-				<td><button onClick={this.props.remove}>-</button>{this.props.count}<button onClick={this.props.add}>+</button></td>
+				<td><button onClick={this.props.remove}>-</button> {this.props.count} <button onClick={this.props.add}>+</button></td>
 				<td>{this.getNet()}</td>
 			</tr>
 		);
