@@ -1,3 +1,40 @@
+* {
+	font-family: Menlo;
+	font-size: 12px;
+}
+
+#wrapper {
+	background-color: #3D435B;
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	right: 0px;
+	left: 0px;
+	padding:20px;
+}
+#net_list {
+	background-color: white;
+	margin-right: 20px;
+	margin-left: 20px;
+	padding:20px;
+	display: inline-block;
+	width: 15%;
+	text-align: top;
+}
+#entity_table {
+	background-color: white;
+	vertical-align: top;
+	width: 70%;
+	margin: 0px;
+	overflow-y: scroll;
+	display: inline-block;
+	max-height: 100%;
+	align-items: center;
+}
+table {
+	margin:20px;
+}
+
 td {
-	vertical-align: text-top;
+	padding: 0px 10px;
 }

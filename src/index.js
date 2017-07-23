@@ -38,11 +38,11 @@ class Entity extends React.Component {
 		let net = [];
 		let consumes = gameData.entities[this.props.name].consumes;
 		for (let consumed in consumes) {
-			net.push(<p>-{gameData.resources[consumed].name} {this.props.count * consumes[consumed]} {gameData.resources[consumed].units}</p>)
+			net.push(<p>-{gameData.resources[consumed].name} {(this.props.count * consumes[consumed]).toFixed(3)} {gameData.resources[consumed].units}</p>)
 		}
 		let produces = gameData.entities[this.props.name].produces;
 		for (let produced in produces) {
-			net.push(<p>+{gameData.resources[produced].name} {this.props.count * produces[produced]} {gameData.resources[produced].units}</p>);
+			net.push(<p>+{gameData.resources[produced].name} {(this.props.count * produces[produced]).toFixed(3)} {gameData.resources[produced].units}</p>);
 		}
 		return net;
 	}
@@ -61,9 +61,9 @@ class EntityTable extends React.Component {
 	}
 	render() {
 		return (
-		<table>
-		<tr><td><p>{this.getNetList()}</p></td>
-		<td><table>
+		<div id="wrapper">
+		<div id="net_list">{this.getNetList()}</div>
+		<div id="entity_table"><table>
 			<tr>
 				<th>Name</th>
 				<th>Consumes:</th>
@@ -72,8 +72,8 @@ class EntityTable extends React.Component {
 				<th>Net:</th>
 			</tr>
 			{this.getRows()}
-			</table></td></tr>
-		</table>
+			</table></div>
+		</div>
 		);
 	}
 	add(name) {
@@ -95,7 +95,7 @@ class EntityTable extends React.Component {
 	}
 	getNetList() {
 		let net = {};
-		let output = [];
+		let output = [<h2>Net Resources:</h2>];
 		for (let entity in this.state.entities) {
 			for (let consumed in gameData.entities[entity].consumes) {
 				if (consumed in net) {
@@ -113,7 +113,7 @@ class EntityTable extends React.Component {
 			}
 		}
 		for (let item in net) {
-			output.push(<p>{net[item]} {gameData.resources[item].units} {gameData.resources[item].name}</p>);
+			output.push(<p>{net[item].toFixed(3)} {gameData.resources[item].units} {gameData.resources[item].name}</p>);
 		}
 		return output;
 	}
