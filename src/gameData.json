@@ -182,7 +182,7 @@
 				"carbonDioxide": 300
 			},
 			"produces": {
-				"pollutedWater": 1000,
+				"pollutedWater": 1000
 			}
 		},
 		"coalGenerator": {
